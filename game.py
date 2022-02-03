@@ -2,6 +2,7 @@ import pygame
 import sys
 from settings import *
 from square import Square
+from input import Input
 
 
 class Game():
@@ -11,9 +12,29 @@ class Game():
 
         self.clock = pygame.time.Clock()
 
+        self.input = Input()
+
         self.my_square = Square(0, 0, 100, RED)
-        self.my_square.set_vel_x(1)
-        self.my_square.set_vel_y(2)
+
+    def square_movement(self):
+        if self.input.left():
+            self.my_square.set_vel_x(-VELOCITY_X)
+        elif self.input.right():
+            self.my_square.set_vel_x(VELOCITY_X)
+        else:
+            self.my_square.set_vel_x(0)
+
+        if self.input.up():
+            self.my_square.set_vel_y(-VELOCITY_Y)
+        elif self.input.down():
+            self.my_square.set_vel_y(VELOCITY_Y)
+        else:
+            self.my_square.set_vel_y(0)
+
+    def update(self):
+        self.input.update()
+        self.square_movement()
+        self.my_square.update()
 
     def mainloop(self) -> None:
         running = True
@@ -24,7 +45,8 @@ class Game():
 
             self.screen.fill(BLACK)
 
-            self.my_square.update()
+            self.update()
+
             pygame.display.update()
             self.clock.tick(FPS)
 
