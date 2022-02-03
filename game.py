@@ -1,5 +1,8 @@
-import pygame, sys
+import pygame
+import sys
 from settings import *
+from square import Square
+
 
 class Game():
     def __init__(self) -> None:
@@ -8,7 +11,11 @@ class Game():
 
         self.clock = pygame.time.Clock()
 
-    def mainloop(self):
+        self.my_square = Square(0, 0, 100, RED)
+        self.my_square.set_vel_x(1)
+        self.my_square.set_vel_y(2)
+
+    def mainloop(self) -> None:
         running = True
         while running:
             for event in pygame.event.get():
@@ -17,12 +24,13 @@ class Game():
 
             self.screen.fill(BLACK)
 
+            self.my_square.update()
             pygame.display.update()
             self.clock.tick(FPS)
-        
+
         pygame.quit()
         sys.exit()
 
-g = Game()
 
+g = Game()
 g.mainloop()
