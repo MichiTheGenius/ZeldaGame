@@ -6,6 +6,8 @@ class Game():
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption('myGame')
 
+        self.clock = pygame.time.Clock()
+
     def mainloop(self):
         running = True
         while running:
@@ -16,6 +18,7 @@ class Game():
             self.screen.fill(BLACK)
 
             pygame.display.update()
+            self.clock.tick(FPS)
         
         pygame.quit()
         sys.exit()
