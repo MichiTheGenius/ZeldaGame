@@ -9,3 +9,7 @@ BLUE = (0, 0, 255)
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 FPS = 60
+
+# player setup
+VELOCITY_X = 1
+VELOCITY_Y = 1
