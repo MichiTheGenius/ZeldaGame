@@ -11,5 +11,4 @@ SCREEN_HEIGHT = 600
 FPS = 60
 
 # player setup
-VELOCITY_X = 1
-VELOCITY_Y = 1
+PLAYER_SPEED = 3
