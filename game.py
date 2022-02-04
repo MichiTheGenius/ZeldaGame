@@ -1,5 +1,6 @@
 import pygame
 import sys
+from level import Level
 from settings import *
 from player import Player
 
@@ -11,6 +12,9 @@ class Game():
         self.clock = pygame.time.Clock()
 
         self.player = Player()
+
+        self.level = Level()
+        self.level.create_map()
 
     def update(self):
         self.player.update()

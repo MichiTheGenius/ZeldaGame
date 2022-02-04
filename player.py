@@ -8,7 +8,7 @@ class Player:
         self.position = pygame.math.Vector2()
         self.direction = pygame.math.Vector2()
         self.display_surface = pygame.display.get_surface()
-        self.input = Input()
+        self.input = Input() # input class
 
     def update(self):
         self.input.update()
