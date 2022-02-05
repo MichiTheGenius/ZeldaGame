@@ -2,22 +2,20 @@ import pygame
 import sys
 from level import Level
 from settings import *
-from player import Player
 
 class Game():
     def __init__(self) -> None:
+        pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption('myGame')
 
         self.clock = pygame.time.Clock()
 
-        self.player = Player()
-
         self.level = Level()
         self.level.create_map()
 
     def update(self):
-        self.player.update()
+        self.level.update()
 
     def mainloop(self) -> None:
         running = True
