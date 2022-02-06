@@ -7,7 +7,7 @@ class Game():
     def __init__(self) -> None:
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
-        pygame.display.set_caption('myGame')
+        pygame.display.set_caption('ZeldaGame')
 
         self.clock = pygame.time.Clock()
 

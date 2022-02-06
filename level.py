@@ -10,9 +10,6 @@ class Level():
         self.visible_sprites = CameraGroup()
         self.obstacle_sprites = pygame.sprite.Group()
         self.collectible_sprites = pygame.sprite.Group()
-        self.rock_image = './assets/rock.png'
-        self.sword_image = './assets/sword.png'
-        self.player_image = './assets/player.png'
 
     def create_map(self):
         for row_index, row in enumerate(WORLD_MAP):
@@ -21,12 +18,12 @@ class Level():
                 y = row_index * TILE_SIZE
 
                 if column == 'x':
-                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites], self.rock_image)
+                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites], ROCK_IMAGE)
                 elif column == 'p':
                     self.player = Player(
-                        (x, y), [self.visible_sprites], self.player_image, self.obstacle_sprites, self.collectible_sprites)
+                        (x, y), [self.visible_sprites], PLAYER_IMAGE, self.obstacle_sprites, self.collectible_sprites)
                 elif column == 'o':
-                    Collectible((x,y), [self.visible_sprites, self.collectible_sprites], self.sword_image)
+                    Collectible((x,y), [self.visible_sprites, self.collectible_sprites], SWORD_IMAGE)
 
     def update(self):
         self.visible_sprites.update()
@@ -46,6 +43,6 @@ class CameraGroup(pygame.sprite.Group):
         self.offset.y = player.rect.centery - self.half_height
 
         for sprite in self.sprites():
-            offset_pos = sprite.rect.topleft - self.offset
             if sprite.is_visible:
+                offset_pos = sprite.rect.topleft - self.offset
                 self.display_surface.blit(sprite.image, offset_pos)
