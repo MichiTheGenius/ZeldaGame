@@ -12,6 +12,7 @@ class Level():
         self.collectible_sprites = pygame.sprite.Group()
         self.rock_image = './assets/rock.png'
         self.sword_image = './assets/sword.png'
+        self.player_image = './assets/player.png'
 
     def create_map(self):
         for row_index, row in enumerate(WORLD_MAP):
@@ -23,7 +24,7 @@ class Level():
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites], self.rock_image)
                 elif column == 'p':
                     self.player = Player(
-                        (x, y), [self.visible_sprites], self.obstacle_sprites, self.collectible_sprites)
+                        (x, y), [self.visible_sprites], self.player_image, self.obstacle_sprites, self.collectible_sprites)
                 elif column == 'o':
                     Collectible((x,y), [self.visible_sprites, self.collectible_sprites], self.sword_image)
 

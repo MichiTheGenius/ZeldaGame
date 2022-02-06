@@ -2,14 +2,11 @@ import pygame
 from settings import *
 from input import Input
 from debug import debug
+from sprite import Sprite
 
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, obstacle_sprites, collectible_sprites) -> None:
-        super().__init__(groups)
-        self.image = pygame.image.load('./assets/player.png').convert_alpha()
-        self.rect = self.image.get_rect(topleft=pos)
-        self.is_visible = True
+class Player(Sprite):
+    def __init__(self, pos, groups, image_path, obstacle_sprites, collectible_sprites):
+        super().__init__(pos, groups, image_path)
 
         self.collectible_count = 0
 
