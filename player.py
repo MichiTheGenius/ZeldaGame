@@ -17,7 +17,6 @@ class Player(pygame.sprite.Sprite):
         self.input = Input()
 
         self.obstacle_sprites = obstacle_sprites
-
         self.collectible_sprites = collectible_sprites
 
     def update(self):
@@ -27,10 +26,9 @@ class Player(pygame.sprite.Sprite):
 
     def collect_collectible(self):
         for sprite in self.collectible_sprites:
-            if self.rect.colliderect(sprite.rect) and sprite.can_collide:
-                #debug('Collectible collected!')
+            if self.rect.colliderect(sprite.rect) and sprite.can_collect:
                 self.collectible_count += 1
-                sprite.can_collide = False
+                sprite.can_collect = False
         debug(self.collectible_count)
 
     def check_collision(self, direction):

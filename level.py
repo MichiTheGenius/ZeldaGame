@@ -2,7 +2,7 @@ import pygame
 from player import Player
 from settings import *
 from tile import Tile
-
+from collectible import Collectible
 
 class Level():
     def __init__(self) -> None:
@@ -23,7 +23,7 @@ class Level():
                     self.player = Player(
                         (x, y), [self.visible_sprites], self.obstacle_sprites, self.collectible_sprites)
                 elif column == 'o':
-                    Tile((x,y), [self.visible_sprites, self.collectible_sprites])
+                    Collectible((x,y), [self.visible_sprites, self.collectible_sprites])
 
     def update(self):
         self.visible_sprites.update()
