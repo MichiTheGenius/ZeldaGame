@@ -1,9 +1,7 @@
 import pygame
+from tile import Tile
 
-class Collectible(pygame.sprite.Sprite):
-    def __init__(self, pos, groups):
-        super().__init__(groups)
-        self.image = pygame.image.load('./assets/sword.png').convert_alpha()
-        self.rect = self.image.get_rect(topleft = pos)
-        self.display_image = True
+class Collectible(Tile):
+    def __init__(self, pos, groups, image_path):
+        super().__init__(pos, groups, image_path)
         self.can_collect = True

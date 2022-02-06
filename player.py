@@ -9,6 +9,7 @@ class Player(pygame.sprite.Sprite):
         super().__init__(groups)
         self.image = pygame.image.load('./assets/player.png').convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
+        self.is_visible = True
 
         self.collectible_count = 0
 
@@ -29,6 +30,7 @@ class Player(pygame.sprite.Sprite):
             if self.rect.colliderect(sprite.rect) and sprite.can_collect:
                 self.collectible_count += 1
                 sprite.can_collect = False
+                sprite.is_visible = False
         debug(self.collectible_count)
 
     def check_collision(self, direction):
