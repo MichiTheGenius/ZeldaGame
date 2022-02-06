@@ -19,3 +19,6 @@ class Input():
 
     def down(self) -> bool:
         return self.keys[pygame.K_DOWN]
+
+    def space(self) -> bool:
+        return self.keys[pygame.K_SPACE]
