@@ -18,12 +18,12 @@ class Level():
                 y = row_index * TILE_SIZE
 
                 if column == 'x':
-                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites], ROCK_IMAGE)
+                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 elif column == 'p':
                     self.player = Player(
-                        (x, y), [self.visible_sprites], PLAYER_IMAGE, self.obstacle_sprites, self.collectible_sprites)
+                        (x, y), [self.visible_sprites], self.obstacle_sprites, self.collectible_sprites)
                 elif column == 'o':
-                    Collectible((x,y), [self.visible_sprites, self.collectible_sprites], SWORD_IMAGE)
+                    Collectible((x,y), [self.visible_sprites, self.collectible_sprites])
 
     def update(self):
         self.visible_sprites.update()

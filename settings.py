@@ -34,7 +34,3 @@ WORLD_MAP = [
 
 
 # image paths
-
-ROCK_IMAGE = './assets/rock.png'
-SWORD_IMAGE = './assets/sword.png'
-PLAYER_IMAGE = './assets/player.png'

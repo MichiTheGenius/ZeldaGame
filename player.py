@@ -5,8 +5,9 @@ from debug import debug
 from sprite import Sprite
 
 class Player(Sprite):
-    def __init__(self, pos, groups, image_path, obstacle_sprites, collectible_sprites):
-        super().__init__(pos, groups, image_path)
+    def __init__(self, pos, groups, obstacle_sprites, collectible_sprites):
+        self.image_path = './assets/player.png'
+        super().__init__(pos, groups, self.image_path)
 
         self.collectible_count = 0
 
